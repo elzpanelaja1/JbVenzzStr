@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VenzStr | Digital Linktree</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/a2d9d6a64f.js" crossorigin="anonymous"></script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      position:relative;
+      color:white;
+      background:#050816;
+    }
+
+    /* Background Anime */
+    body::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),
+      url('profil.jpg');
+      background-size:cover;
+      background-position:center;
+      filter:blur(2px);
+      transform:scale(1.1);
+      z-index:-2;
+    }
+
+    /* Glow Effect */
+    body::after{
+      content:'';
+      position:absolute;
+      width:600px;
+      height:600px;
+      background:radial-gradient(circle,#00f5ff33,transparent 70%);
+      animation:glow 6s infinite alternate;
+      z-index:-1;
+    }
+
+    @keyframes glow{
+      0%{
+        transform:translate(-100px,-100px);
+      }
+      100%{
+        transform:translate(100px,100px);
+      }
+    }
+
+    .container{
+      width:90%;
+      max-width:420px;
+      padding:30px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.15);
+      box-shadow:0 10px 40px rgba(0,0,0,0.5);
+      text-align:center;
+      animation:fade 1s ease;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* Profile */
+
+    .profile img{
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid #00f5ff;
+      box-shadow:
+      0 0 15px #00f5ff,
+      0 0 40px #00f5ff88;
+      animation:pulse 3s infinite;
+    }
+
+    @keyframes pulse{
+      0%{
+        box-shadow:
+        0 0 15px #00f5ff,
+        0 0 40px #00f5ff88;
+      }
+
+      50%{
+        box-shadow:
+        0 0 25px #00f5ff,
+        0 0 60px #00f5ff;
+      }
+
+      100%{
+        box-shadow:
+        0 0 15px #00f5ff,
+        0 0 40px #00f5ff88;
+      }
+    }
+
+    .profile h1{
+      margin-top:18px;
+      font-size:34px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .profile p{
+      margin-top:8px;
+      opacity:0.8;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .status{
+      margin-top:10px;
+      color:#00ff88;
+      font-weight:600;
+      font-size:14px;
+      display:block;
+    }
+
+    /* Buttons */
+
+    .links{
+      margin-top:30px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .btn{
+      position:relative;
+      overflow:hidden;
+      text-decoration:none;
+      color:white;
+      padding:17px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      font-size:16px;
+      font-weight:600;
+      transition:0.35s;
+      backdrop-filter:blur(10px);
+    }
+
+    .btn::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:100%;
+      height:100%;
+      background:linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.3),
+      transparent
+      );
+      transition:0.6s;
+    }
+
+    .btn:hover::before{
+      left:120%;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px) scale(1.02);
+      background:#00f5ff22;
+      border-color:#00f5ff;
+      box-shadow:0 0 20px #00f5ff55;
+    }
+
+    /* Social */
+
+    .social{
+      margin-top:28px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+    }
+
+    .social a{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:white;
+      text-decoration:none;
+      font-size:22px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
+      transition:0.3s;
+    }
+
+    .social a:hover{
+      transform:translateY(-5px);
+      background:#00f5ff;
+      color:black;
+      box-shadow:0 0 20px #00f5ff;
+    }
+
+    .footer{
+      margin-top:25px;
+      opacity:0.6;
+      font-size:12px;
+    }
+
+    /* Responsive */
+
+    @media(max-width:480px){
+
+      .container{
+        padding:25px;
+      }
+
+      .profile h1{
+        font-size:28px;
+      }
+
+      .btn{
+        font-size:15px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Profile -->
+    <div class="profile">
+
+      <!-- FOTO PROFIL -->
+      <img src="profil.jpg" alt="VenzStr">
+
+      <h1>VenzStr</h1>
+
+      <p>
+        Digital Creator • Developer • Modern UI
+      </p>
+
+      <span class="status">
+        ● Online
+      </span>
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="links">
+
+      <a href="https://whatsapp.com/channel/0029VbBoeri8aKvKxu4VGM2N" class="btn">
+        <i class="fab fa-whatsapp"></i>
+        Saluran JB Utama Venz
+      </a>
+
+      <a href="https://youtube.com/@elzxit?si=vzjs-K46eBrwA7O2" class="btn">
+        <i class="fab fa-youtube"></i>
+        YouTube Official
+      </a>
+
+      <a href="https://www.tiktok.com/@venz7676" class="btn">
+        <i class="fab fa-tiktok"></i>
+        TikTok VenzStr
+      </a>
+
+      <a href="https://github.com" class="btn">
+        <i class="fab fa-github"></i>
+        GitHub
+      </a>
+
+      <a href="https://wa.me/6288967223103" class="btn">
+        <i class="fab fa-whatsapp"></i>
+        WA Admin
+      </a>
+
+    </div>
+
+    <!-- Social -->
+    <div class="social">
+
+      <a href="#">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-discord"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-telegram"></i>
+      </a>
+
+    </div>
+
+    <div class="footer">
+      © 2026 VenzStr Digital Linktree
+    </div>
+
+  </div>
+
+</body>
+  </html>
